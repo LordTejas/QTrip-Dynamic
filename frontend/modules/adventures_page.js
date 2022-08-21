@@ -5,20 +5,76 @@ import config from "../conf/index.js";
 function getCityFromURL(search) {
   // TODO: MODULE_ADVENTURES
   // 1. Extract the city id from the URL's Query Param and return it
-
+  const params = new URLSearchParams(search);  // Creates param object
+  return params.get('city');
 }
 
 //Implementation of fetch call with a paramterized input based on city
 async function fetchAdventures(city) {
   // TODO: MODULE_ADVENTURES
   // 1. Fetch adventures using the Backend API and return the data
-
+  try {
+    const adventure_url = `${config.backendEndpoint}/adventures?city=${city}`;
+    let adventures = await fetch(adventure_url);
+    adventures = await adventures.json();
+    return adventures;
+  } catch (err) {
+    console.log(err);
+    return null;
+  }
 }
 
 //Implementation of DOM manipulation to add adventures for the given city from list of adventures
 function addAdventureToDOM(adventures) {
   // TODO: MODULE_ADVENTURES
   // 1. Populate the Adventure Cards and insert those details into the DOM
+  try {
+    const adventureGrid = document.getElementById('data');
+
+    // console.log(adventures);
+
+    adventures.forEach(adventure => {
+      var adventureCard = document.createElement('a');
+      adventureCard.id = adventure.id;
+      adventureCard.className = 'col-6 col-lg-3 my-2';
+      adventureCard.setAttribute('href', `/detail/?adventure=${adventure.id}`)
+
+      
+      adventureCard.innerHTML = `
+      <div>
+      <div class="activity-card">
+      
+        <img src="${adventure.image}" / >
+      
+        <div class="category-banner">${adventure.category}</div>
+              
+          <div class="d-flex flex-column align-self-stretch">
+
+            <div class="d-flex justify-content-between flex-wrap px-2 pt-2">
+              <h6>${adventure.name}</h6>
+              <h6>${adventure.costPerHead} ${adventure.currency}</h6>
+            </div>
+            
+            <div class="d-flex justify-content-between flex-wrap px-2 pb-2">
+            <h6>DURATION</h6>
+              <h6>${adventure.duration} Hours</h6>
+            </div>
+
+          </div>
+      
+      </div>
+      </div>
+      `
+
+      console.log(adventure);
+      console.log(adventureCard);
+
+      adventureGrid.appendChild(adventureCard);      
+    })
+
+  } catch (err) {
+    console.log(err);
+  }
 
 }
 
