@@ -66,8 +66,8 @@ function addAdventureToDOM(adventures) {
       </div>
       `
 
-      console.log(adventure);
-      console.log(adventureCard);
+      // console.log(adventure);
+      // console.log(adventureCard);
 
       adventureGrid.appendChild(adventureCard);      
     })
