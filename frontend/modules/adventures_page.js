@@ -113,24 +113,10 @@ function filterFunction(list, filters) {
     high = duration[1];
     console.log(duration);  
   }
-  
-  // Filter by category
-  // console.log(filters.category.length);
-  // if (filters.category.length && filters.duration.length) {
-  //   console.log(1);
-  //   list = filterByCategory(list, filters.category);
-  //   list = filterByDuration(list, filters.duration[0], filters.duration[1]);
-  // } else if (filters.category.length) {
-  //   console.log(2);
-  //   list = filterByCategory(list, filters.category);
-  // } else if (filters.duration.length) {
-  //   console.log(3);
-  //   list = filterByDuration(list, filters.duration[0], filters.duration[1]);
-  // } 
-
-  if (filters.category.length) list = filterByCategory(list, filters.category);
 
   if (duration.length > 1) list = filterByDuration(list, low, high);
+  if (filters.category.length) list = filterByCategory(list, filters.category);
+
 
   // Filter By Duration
 
