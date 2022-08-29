@@ -41,9 +41,8 @@ function addCityToDOM(id, city, description, image) {
   let cityTile = document.createElement('div');
   cityTile.id = id;
   cityTile.className = 'col-12 col-sm-6 col-lg-3 mb-4'
-
   cityTile.innerHTML = `
-        <a href="pages/adventures/">
+        <a href="pages/adventures/?city=${city.toLowerCase()}">
           <div class="tile">
             <img src="${image}" />
             <div class="tile-text text-center">
@@ -54,7 +53,7 @@ function addCityToDOM(id, city, description, image) {
         </a>
   `
 
-  cityDiv.append(cityTile);
+  cityDiv.appendChild(cityTile);
 
 }
 
