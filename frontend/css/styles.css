@@ -169,6 +169,9 @@ footer {
   -webkit-filter: brightness(50%);
 }
 
+.activity-card-image:hover {
+  -webkit-filter: brightness(50%);
+}
 .experience-content ul li {
   margin-left: 16px;
   padding: 0;
@@ -233,6 +236,9 @@ footer {
   background-color: rgb(226, 129, 1);
 }
 
+.reserve-button:hover {
+  background-color: rgb(226, 129, 1);
+}
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -249,6 +255,9 @@ input[type="number"] {
   display: none;
 }
 
+#reserved-banner {
+  display: none;
+}
 .reservation-visit-button {
   background-color: rgb(255, 145, 0);
   color: #fff;
