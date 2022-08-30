@@ -2,6 +2,10 @@
   "name": "json-server",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "16.16.0",
+    "npm": "7.8.0"
+  },
   "scripts": {
     "start": "node server.js"
   },
